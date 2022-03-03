@@ -75,9 +75,20 @@ var fight = function(enemy) {
   }
 };
 
+//function to set name
+var getPlayerName = function () {
+  var name = "";
+
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name");
+  }
+  console.log("Your robot's name is " + name);
+  return name;
+};
+
 //User Robot Information
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName (),
   health: 100,
   attack: 10,
   money: 10,
@@ -107,6 +118,7 @@ var playerInfo = {
   }
 };
 
+
 //Enemy Robot Information
 var enemyInfo = [
   {
@@ -135,7 +147,7 @@ for(var i = 0; i < enemyInfo.length; i++) {
   if (playerInfo.health > 0) {
 
     //let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-    window.alert('Welcome to Robot Gladiators! Round ' + (i + 1) );
+    window.alert('Welcome to Robot Gladiators! Round ' + (i + 1));
 
     // pick new enemy to fight based on the index of the enemyNames array
     var pickedEnemyObj = enemyInfo[i];
